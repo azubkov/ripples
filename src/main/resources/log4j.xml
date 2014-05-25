@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration>
+
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%t] %C{1} - %m\n"/>
+        </layout>
+
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMax" value="FATAL"/>
+            <param name="LevelMin" value="DEBUG"/>
+            <!--<param name="LevelMax" value="WARN"/>-->
+            <!--<param name="LevelMin" value="INFO"/>-->
+        </filter>
+    </appender>
+
+    <appender name="FILE" class="org.apache.log4j.FileAppender">
+        <param name="File" value="ripples.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%t] %l: %m\n"/>
+        </layout>
+    </appender>
+
+    <logger name="com.artit.ripples.Main">
+        <level value="info"/>
+    </logger>
+
+    <root>
+        <priority value="debug"></priority>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</log4j:configuration>                                  
